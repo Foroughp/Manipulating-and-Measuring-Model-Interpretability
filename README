@@ -1,4 +1,4 @@
-This directory contains the code and data necessary to reproduce all figures and statistical tests in our paper, "Manipulating and Measuring Model Interpretability".
+This directory contains the code and data necessary to reproduce all figures and statistical tests in our paper, "Manipulating and Measuring Model Interpretability" published in CHI 2021.
 
 Running "make" will run the Makefile and execute code for each experiment. The code for each experiment generates plots in the figures/ directory and an html notebook of the results. A copy of the rendered html notebooks has been included in this directory.
 
