@@ -327,7 +327,7 @@ q11_data <- filter(q11_data, condition != "NO-MODEL") %>%
   mutate(transparency = ifelse(condition == "CLEAR-2" | condition == "CLEAR-8", "CLEAR", "BB")) %>%
   mutate(num_features = ifelse(condition == "CLEAR-2" | condition == "BB-2", "two", "eight"))
 
-# two-way anova
+# two-way anova on pred error
 q11_anova <- aov(pred_err ~ transparency*num_features, data=q11_data)
 summary(q11_anova)
 

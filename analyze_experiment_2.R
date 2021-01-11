@@ -309,14 +309,18 @@ q11_data <- filter(responses_unusual, q_id == 10)
 # prediction error in no-model vs rest
 lm_model <- lm(pred_err ~ condition, data=q11_data)
 means <- emmeans(lm_model, c("condition"))
+
 clist <- list(baseline_vs_rest = c(-1, -1, -1, -1, 4))
 emmeans::contrast(means, clist)
 
-#fit a model for deviation
 q11_data <- filter(q11_data, condition != "NO-MODEL") %>%
   mutate(transparency = ifelse(condition == "CLEAR-2" | condition == "CLEAR-8", "CLEAR", "BB")) %>%
   mutate(num_features = ifelse(condition == "CLEAR-2" | condition == "BB-2", "two", "eight"))
 
+
+# two-way anova on pred error
+q11_anova <- aov(pred_err ~ transparency*num_features, data=q11_data)
+summary(q11_anova)
 
 # prediction error transparent vs. black-box
 lm_model <- lm(pred_err ~ transparency*num_features, data=q11_data)
