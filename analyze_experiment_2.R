@@ -310,6 +310,7 @@ q11_data <- filter(responses_unusual, q_id == 10)
 lm_model <- lm(pred_err ~ condition, data=q11_data)
 means <- emmeans(lm_model, c("condition"))
 
+
 clist <- list(baseline_vs_rest = c(-1, -1, -1, -1, 4))
 emmeans::contrast(means, clist)
 
