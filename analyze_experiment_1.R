@@ -238,6 +238,7 @@ means <- emmeans(hlm_model, c("transparency", "num_features"))
 clist <- list(clear2_vs_else = c(-1, -1, -1, 3))
 emmeans::contrast(means, clist)
 
+
 clist <- list(clear8_vs_else = c(-1, 3, -1, -1))
 emmeans::contrast(means, clist)
 
@@ -407,7 +408,7 @@ breaks <- seq(0, 1.5, 0.5)
 ggplot(plot_data, aes(x = condition, y = mean, color = condition, fill = condition, label=sprintf("$%gM", round(mean, digits=2)))) +
   geom_bar(stat = "identity", alpha=.5) +
   geom_errorbar(aes(ymin = mean - se, ymax = mean + se), width = 0.1, color = "black") +
-  geom_hline(aes(yintercept = model_pred/1e6, linetype = "Model's prediction"), size=1) +
+  geom_hline(aes(yintercept = model_pred/1e6, linetype = "Model's prediction"),alpha = 0.5, size=1) +
   scale_fill_manual(guide = FALSE,values=my_pallete) + scale_colour_manual(guide = FALSE, values=my_pallete)+
   xlab('') +
   ylab('Mean participant prediction')+
